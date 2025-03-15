@@ -1,0 +1,57 @@
+builds:
+  - binary: go-insert-locale
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+    env:
+      - CGO_ENABLED=0
+    ldflags:
+      - -s -w
+      - -X main.version={{.Version}}
+      - -X main.commit={{.Commit}}
+      - -X main.date={{.Date}}
+      - -X main.builtBy=goreleaser
+
+release:
+  prerelease: auto
+  github:
+    owner: AlejandroSuero
+    name: go-insert-locale
+
+universal_binaries:
+  - replace: true
+
+brews:
+  -
+    name: go-insert-locale
+    homepage: "https://github.com/AlejandroSuero/go-insert-locale"
+    description: "Insert locale data into your locales directory"
+    license: "MIT"
+    repository:
+      owner: https://github.com/AlejandroSuero
+      name: go-insert-locale
+    commit_author:
+      name: Alejandro Suero
+      email: asuerome@gmail.com
+
+archives:
+  - format: tar.gz
+    format_overrides:
+      - goos: windows
+        format: zip
+    name_template: "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+
+checksum:
+  name_template: "checksums.txt"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^chore:"
