@@ -16,14 +16,27 @@ Insert locale data into your `locales` directory.
 
 </div>
 
+<hr />
+
 > [!warning]
 >
 > This project is still in development, so it may not be stable.
 
+## Installation
+
+You can use [Homebrew](https://brew.sh/) or go to the
+[Releases page](https://github.com/AlejandroSuero/go-insert-locale/releases)
+and download the latest version for your OS.
+
+```bash
+brew tap AlejandroSuero/aome
+brew install AlejandroSuero/aome/gil
+```
+
 ## Usage
 
 ```bash
-go run main.go -input <input-file> -output <output-dir>
+go-insert-locale -input <input-file> -output <output-dir>
 ```
 
 This will read the JSON file provided in `<input-file>` and insert it into the
@@ -59,7 +72,7 @@ This will create the following files in `<output-dir>`:
 ### Example
 
 ```bash
-go run main.go -input locales.json -output locales
+go-insert-locale -input locales.json -output locales
 ```
 
 ## Contributing
