@@ -34,7 +34,7 @@ brews:
     license: "MIT"
     repository:
       owner: AlejandroSuero
-      name: homebrew-tap
+      name: homebrew-aome
       branch: main
       token: "{{ .Env.PUBLISHER_TOKEN }}"
     commit_author:
