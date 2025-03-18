@@ -1,6 +1,6 @@
 version: 2
 builds:
-  - binary: go-insert-locale
+  - binary: gil
     goos:
       - linux
       - windows
@@ -28,13 +28,15 @@ universal_binaries:
 
 brews:
   -
-    name: go-insert-locale
+    name: gil
     homepage: "https://github.com/AlejandroSuero/go-insert-locale"
     description: "Insert locale data into your locales directory"
     license: "MIT"
     repository:
-      owner: https://github.com/AlejandroSuero
-      name: go-insert-locale
+      owner: AlejandroSuero
+      name: homebrew-tap
+      branch: main
+      token: "{{ .Env.PUBLISHER_TOKEN }}"
     commit_author:
       name: Alejandro Suero
       email: asuerome@gmail.com
